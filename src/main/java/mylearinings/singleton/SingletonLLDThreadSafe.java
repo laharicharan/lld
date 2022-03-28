@@ -2,19 +2,23 @@ package mylearinings.singleton;
 
 import java.util.Random;
 
-public class SingletonLLD {
-    static SingletonLLD singletonLLD = null;
-    private SingletonLLD(){
+public class SingletonLLDThreadSafe {
+    static SingletonLLDThreadSafe singletonLLD = null;
+    private SingletonLLDThreadSafe(){
         System.out.println("Created an Object of SingletonLLD Class");
     }
 
-    public static SingletonLLD getInstance(){
+    public static SingletonLLDThreadSafe getInstance(){
         if(singletonLLD != null){
             System.out.println("Returning already created Object");
             return singletonLLD;
         }
-        singletonLLD = new SingletonLLD();
 
+        synchronized (SingletonLLDThreadSafe.class){
+            if(singletonLLD == null) {
+                singletonLLD = new SingletonLLDThreadSafe();
+            }
+        }
         return singletonLLD;
     }
 
