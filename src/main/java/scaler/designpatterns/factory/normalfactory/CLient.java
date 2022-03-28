@@ -6,6 +6,8 @@ public class CLient {
         Database db = DatabaseFactory.getDatabaseForConfigValue(
                 databaseConfig
         );
+        Query query = db.getQuery();
+        query.execute();
 //
 //        if (databaseConfig == "postgre") {
 //            db = new PostgreSQLDatabase();
