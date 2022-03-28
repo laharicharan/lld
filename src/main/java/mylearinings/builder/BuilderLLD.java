@@ -16,11 +16,33 @@ public class BuilderLLD {
         return this;
     }
 
-    public void printCity(){
-        System.out.println("City is "+this.city);
+    public String getName() {
+        return name;
     }
 
-    public void printName(){
-        System.out.println("Name is "+this.name);
+    public String getCity() {
+        return city;
+    }
+
+    public Student build(){
+        return new Student(this);
+    }
+
+}
+
+class Student{
+    private String name;
+    private String city;
+    Student(BuilderLLD builderLLD){
+        this.name = builderLLD.getName();
+        this.city = builderLLD.getCity();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCity() {
+        return city;
     }
 }

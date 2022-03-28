@@ -2,19 +2,15 @@ package mylearinings.builder;
 
 public class Client {
     public static void main(String[] args) {
-        BuilderLLD builderLLD1 = new BuilderLLD()
+        Student s = new BuilderLLD()
                 .setName("charan")
-                .setCity("hyd");
+                .setCity("hyd")
+                .build();
 
-        BuilderLLD builderLLD2 = new BuilderLLD()
-                .setName("blc")
-                .setCity("blr");
+        System.out.println(s.getCity());
+        System.out.println(s.getName());
 
-        builderLLD1.printName();
-        builderLLD1.printCity();
 
-        builderLLD2.printName();
-        builderLLD2.printCity();
 
     }
 }
